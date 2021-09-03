@@ -47,7 +47,7 @@
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
         <li>
-          <a href="widgets.html" aria-expanded="false">
+          <a href="<?php echo base_url() ?>" aria-expanded="false">
             <div class="parent-icon"><i class='bx bx-home'></i></div>
             <div class="menu-title">Dashboard</div>
           </a>
@@ -56,7 +56,7 @@
         <!-- Dynamic Navbar -->
         <?php foreach(navigasi_by_role('admin') as $nav):  ?>
           <li>
-            <a href="<?php echo $nav->path ?>" aria-expanded="false">
+            <a href="<?php echo base_url($nav->path) ?>" aria-expanded="false">
               <div class="parent-icon"><?php echo $nav->class_icon ?></div>
               <div class="menu-title"><?php echo $nav->name ?></div>
             </a>
