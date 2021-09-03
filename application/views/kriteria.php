@@ -2,10 +2,7 @@
   <div class="page-content">
     <!-- Breadcrumb -->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-      <div class="breadcrumb-title pe-3">Daftar Admin</div>
-      <div class="ms-auto">
-        <a href="tambah" class="btn bg-info">Tambah Admin</a>
-      </div>
+      <div class="breadcrumb-title pe-3">Data Kriteria / Parameter Variabel Prediksi</div>
     </div>
     <!-- End Breadcrumb -->
 

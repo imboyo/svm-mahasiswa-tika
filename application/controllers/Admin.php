@@ -19,6 +19,15 @@ class Admin extends CI_Controller {
     $data['title'] = 'Tambah Admin';
 
     $this->load->view('templates/header', $data);
+    // TODO: Buat UI
+    $this->load->view('templates/footer');
+  }
+
+  public function mahasiswa(){
+    $data['title'] = 'Mahasiswa';
+    
+    $this->load->view('templates/header', $data);
+    $this->load->view('admin/mahasiswa', $data);
     $this->load->view('templates/footer');
   }
 }
