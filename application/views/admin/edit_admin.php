@@ -6,7 +6,7 @@
       <div class="ps-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0 p-0">
-            <li class="breadcrumb-item active" aria-current="page">Tambah Admin</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Admin</li>
           </ol>
         </nav>
       </div>
@@ -19,7 +19,7 @@
           <div class="card-title d-flex align-items-center">
             <div><i class="bx bxs-user me-1 font-22 text-danger"></i>
             </div>
-            <h5 class="mb-0 text-danger">Tambah Admin</h5>
+            <h5 class="mb-0 text-danger">Edit Admin</h5>
           </div>
           <hr>
           <form class="row g-3">
@@ -48,10 +48,6 @@
         </div>
       </div>
     </div>
-
-
-
-
 
   </div>
 </div>

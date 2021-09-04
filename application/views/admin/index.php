@@ -26,7 +26,7 @@
               <td>Mark</td>
               <td>Otto</td>
               <td class="text-center">
-                <a href="" class="btn bg-info">Edit</a>
+                <a href="<?php echo base_url('admin/edit_admin/1255') ?>" class="btn bg-info">Edit</a>
                 <a href="" class="btn bg-danger">Hapus</a>
               </td>
             </tr>

@@ -54,7 +54,7 @@
         </li>
         
         <!-- Dynamic Navbar -->
-        <?php foreach(navigasi_by_role('admin') as $nav):  ?>
+        <?php foreach(navigasi_by_role('normal') as $nav):  ?>
           <li>
             <a href="<?php echo base_url($nav->path) ?>" aria-expanded="false">
               <div class="parent-icon"><?php echo $nav->class_icon ?></div>

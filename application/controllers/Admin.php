@@ -23,6 +23,14 @@ class Admin extends CI_Controller {
     $this->load->view('templates/footer');
   }
 
+  public function edit_admin(){
+    $data['title'] = 'Edit Admin';
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('admin/edit_admin');
+    $this->load->view('templates/footer');
+  }
+
   public function tambah_mahasiswa(){
     $data['title'] = 'Tambah Mahasiswa';
 
