@@ -2,9 +2,9 @@
   <div class="page-content">
     <!-- Breadcrumb -->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-      <div class="breadcrumb-title pe-3">Daftar Admin</div>
+      <div class="breadcrumb-title pe-3">Daftar Mahasiswa</div>
       <div class="ms-auto">
-        <a href="tambah" class="btn bg-info">Tambah Admin</a>
+        <a href="<?php echo base_url('admin/tambah_mahasiswa') ?>" class="btn bg-info">Tambah Mahasiswa</a>
       </div>
     </div>
     <!-- End Breadcrumb -->
@@ -37,6 +37,10 @@
               <td>Tidak</td>
               <td>3,5 Tahun</td>
               <td>Tidak Tepat Waktu</td>
+              <td>
+                <a href="<?php echo base_url('admin/edit_mahasiswa/123') ?>" class="btn bg-warning">Edit</a>
+                <a href="" class="btn bg-danger">Hapus</a>
+              </td>
             </tr>
           </tbody>
         </table>

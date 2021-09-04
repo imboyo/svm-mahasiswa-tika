@@ -4,7 +4,7 @@
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
       <div class="breadcrumb-title pe-3">Daftar Admin</div>
       <div class="ms-auto">
-        <a href="tambah" class="btn bg-info">Tambah Admin</a>
+        <a href="<?php echo base_url('admin/tambah') ?>" class="btn bg-info">Tambah Admin</a>
       </div>
     </div>
     <!-- End Breadcrumb -->

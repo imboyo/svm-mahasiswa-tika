@@ -6,3 +6,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['kriteria'] = 'Dashboard/kriteria';
+$route['admin/edit_mahasiswa/(:any)'] = 'Admin/edit_mahasiswa';
