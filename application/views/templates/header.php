@@ -30,7 +30,7 @@
 
 </head>
 <body>
-  	<!--wrapper-->
+  <!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->
 		<div class="sidebar-wrapper" data-simplebar="true">
