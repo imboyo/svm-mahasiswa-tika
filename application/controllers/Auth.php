@@ -8,7 +8,7 @@ class Auth extends CI_Controller {
 
   public function login(){
     if (get_account_by_session()){
-      redirect(base_url());
+      redirect(base_url()); die();
     } else {
       $data['title'] ='Login';
       
@@ -17,5 +17,6 @@ class Auth extends CI_Controller {
       $this->load->view('auth/templates/footer');
     }
   }
+  
   
 }

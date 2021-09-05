@@ -10,7 +10,6 @@ class API_Auth extends CI_Controller{
 
   public function login(){
     $this->load->library('form_validation');
-    $this->load->library('session');
 
     $username = $this->input->post('username');
     $password = $this->input->post('password');
@@ -43,5 +42,14 @@ class API_Auth extends CI_Controller{
         echo 401;
       }
     }
+  }
+
+  public function logout(){
+    if(empty(get_account_by_session())){
+      redirect(base_url()); die();
+    }
+
+    $this->session->unset_userdata(['username', 'password']);
+    redirect(base_url('auth/login'));
   }
 }

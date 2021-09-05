@@ -17,3 +17,15 @@ if(!function_exists('get_account_by_session')){
     }
   }
 }
+
+function redirect_to_login_if_not_logged_in(){
+  if(empty(get_account_by_session())){
+    redirect(base_url('auth/login')); die();
+  }
+}
+
+function redirect_to_login_if_not_admin(){
+  if(get_account_by_session()->role != 'admin'){
+    redirect(base_url('auth/login'));die();
+  }
+}
