@@ -28,6 +28,7 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/templates/css/semi-dark.css" />
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/templates/css/header-colors.css" />
 
+
 </head>
 <body>
   <!--wrapper-->
