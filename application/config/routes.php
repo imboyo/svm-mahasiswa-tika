@@ -11,4 +11,3 @@ $route['admin/edit_mahasiswa/(:any)'] = 'Admin/edit_mahasiswa';
 $route['admin/edit_admin/(:any)'] = 'Admin/edit_admin';
 
 $route['API/admin/delete_admin/(:any)'] = 'API_user/delete_admin';
-$route['API/admin/edit_admin'] = 'API_user/edit_admin';
