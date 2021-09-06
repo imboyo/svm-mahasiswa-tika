@@ -18,7 +18,7 @@ class Admin extends CI_Controller {
 
   public function tambah(){
     $data['title'] = 'Tambah Admin';
-
+    
     $this->load->view('templates/header', $data);
     $this->load->view('admin/tambah');
     $this->load->view('templates/footer');
