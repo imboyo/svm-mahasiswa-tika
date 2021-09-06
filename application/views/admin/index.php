@@ -19,14 +19,14 @@
               <th scope="col" class="col-8">Aksi</th>
             </tr>
           </thead>
-          <tbody>
+        <tbody>
             <?php foreach($admin as $i): ?>
             <tr>
                 <th scope="row"><?php echo $table_num ?></th>
                   <td><?php echo $i->username ?></td>
                   <td>
                     <a href="<?php echo base_url('admin/edit_admin/').$i->id ?>" class="btn bg-info">Edit</a>
-                    <a href="" class="btn bg-danger">Hapus</a>
+                    <a class="btn bg-danger" onclick="delete_admin(<?php echo $i->id ?>)" id="delete_admin">Hapus</a>
                 </td>
               </tr>
               <?php $table_num++;endforeach ?>
@@ -39,3 +39,40 @@
 
   </div>
 </div>
+
+<script>
+  function delete_admin(id){
+    $.ajax({
+      url: `<?php echo base_url() ?>API/admin/delete_admin/${id}`,
+      type: "get", 
+      datatype: 'json',
+
+      beforeSend: function(){
+        SlickLoader.enable();
+      },
+      complete: function(){
+        SlickLoader.disable();
+      },
+      success: function(response){
+        if(response == 202){
+            Swal.fire({
+              icon: 'success',
+              title: 'Good',
+              text: 'Berhasil Dihapus',
+              showConfirmButton: false,
+              timer: 1500
+            }).then(function(){
+              window.location.href = `<?php echo base_url('admin') ?>`
+          })
+        } else {
+            Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: 'Kesalahan Server',
+          })
+        }
+      }
+    })
+  }
+
+</script>
