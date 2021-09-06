@@ -22,27 +22,21 @@
             <h5 class="mb-0 text-danger">Edit Admin</h5>
           </div>
           <hr>
-          <form class="row g-3">
-            <div class="col-md-6">
-              <label for="inputLastName1" class="form-label">Username</label>
+          <form class="row g-3" id="edit-admin-form">
+            <div class="col-12">
+              <label for="edit-admin-username" class="form-label">Username</label>
               <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-                <input type="text" class="form-control border-start-0" id="inputLastName1" placeholder="First Name">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <label for="inputLastName2" class="form-label">Nama</label>
-              <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-                <input type="text" class="form-control border-start-0" id="inputLastName2" placeholder="Last Name">
+                <input type="text" class="form-control border-start-0" id="edit-admin-username" placeholder="Username" name="username" value="<?php echo $user->username ?>">
               </div>
             </div>
             <div class="col-12">
-              <label for="inputConfirmPassword" class="form-label">Password</label>
+              <label for="edit-tbh-admin-password" class="form-label">Password</label>
               <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-lock"></i></span>
-                <input type="text" class="form-control border-start-0" id="inputConfirmPassword" placeholder="Confirm Password">
+                <input type="text" class="form-control border-start-0" id="edit-tbh-admin-password" placeholder="Password" name="password">
               </div>
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-danger px-5">Tambah Admin</button>
+              <button type="submit" class="btn btn-danger px-5">Edit Admin</button>
             </div>
           </form>
         </div>
@@ -51,3 +45,4 @@
 
   </div>
 </div>
+

@@ -5,13 +5,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
   public function __construct() {
     parent::__construct();
-    redirect_to_login_if_not_admin();
 
     $this->load->model('M_user');
     $this->load->library('pagination');
   }
 
   public function index(){
+    redirect_to_login_if_not_admin();
     $data['title'] = 'Admin';
 
     // Pagination
@@ -31,6 +31,7 @@ class Admin extends CI_Controller {
   }
 
   public function tambah(){
+    redirect_to_login_if_not_admin();
     $data['title'] = 'Tambah Admin';
 
     $this->load->view('templates/header', $data);
@@ -39,14 +40,26 @@ class Admin extends CI_Controller {
   }
 
   public function edit_admin(){
+    redirect_to_login_if_not_admin();
     $data['title'] = 'Edit Admin';
 
+    $uri = ($this->uri->segment(3) ? $this->uri->segment(3) : 0);
+
+    $user = $this->M_user->get_by_id($uri, TRUE);
+
+    if(empty($user)){
+      redirect(base_url('admin')); die();
+    }
+
+    $data['user'] = $user; 
+    
     $this->load->view('templates/header', $data);
-    $this->load->view('admin/edit_admin');
+    $this->load->view('admin/edit_admin', $data);
     $this->load->view('templates/footer');
   }
 
   public function tambah_mahasiswa(){
+    redirect_to_login_if_not_admin();
     $data['title'] = 'Tambah Mahasiswa';
 
     $this->load->view('templates/header', $data);
@@ -55,6 +68,7 @@ class Admin extends CI_Controller {
   }
 
   public function edit_mahasiswa(){
+    redirect_to_login_if_not_admin();
     $data['title'] = 'Edit Mahasiswa';
 
     $this->load->view('templates/header', $data);
@@ -63,6 +77,7 @@ class Admin extends CI_Controller {
   }
 
   public function mahasiswa(){
+    redirect_to_login_if_not_admin();
     $data['title'] = 'Mahasiswa';
     
     $this->load->view('templates/header', $data);

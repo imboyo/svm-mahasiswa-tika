@@ -19,8 +19,12 @@ class M_user extends CI_Model{
     }
   }
 
-  public function get_by_id($id){
-    $q = $this->db->where('id', $id)->get('user');
+  public function get_by_id($id, $admin=FALSE){
+    if (!$admin){
+      $q = $this->db->where('id', $id)->get('user');
+    } else {
+      $q = $this->db->where(['id'=> $id, 'role' => 'admin'])->get('user');
+    }
     $user = $q->row();
     if(!empty($user)){
       return $user;
@@ -54,4 +58,10 @@ class M_user extends CI_Model{
   public function tambah_admin($data){
     $this->db->insert('user', $data);
   }
+
+  public function edit_by_id($id, $role ,$data){
+    $this->db->where(['id' => $id, 'role' => $role]);
+    $this->db->update('user', $data);
+  }
+  
 }
