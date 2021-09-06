@@ -8,11 +8,10 @@ class Admin extends CI_Controller {
     redirect_to_login_if_not_admin();
 
     $this->load->model('M_user');
+    $this->load->library('pagination');
   }
 
   public function index(){
-    $this->load->library('pagination');
-
     $data['title'] = 'Admin';
 
     // Pagination

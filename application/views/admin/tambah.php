@@ -23,16 +23,10 @@
           </div>
           <hr>
           <form class="row g-3">
-            <div class="col-md-6">
+            <div class="col-12">
               <label for="inputLastName1" class="form-label">Username</label>
               <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
                 <input type="text" class="form-control border-start-0" id="inputLastName1" placeholder="First Name">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <label for="inputLastName2" class="form-label">Nama</label>
-              <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-                <input type="text" class="form-control border-start-0" id="inputLastName2" placeholder="Last Name">
               </div>
             </div>
             <div class="col-12">

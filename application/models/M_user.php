@@ -35,4 +35,8 @@ class M_user extends CI_Model{
     $q = $this->db->where('role', $role)->get('user');
     return $q->num_rows();
   }
+
+  public function tambah_admin($data){
+    $this->db->insert('user', $data);
+  }
 }
