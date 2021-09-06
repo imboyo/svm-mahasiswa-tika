@@ -15,40 +15,29 @@
           <thead>
             <tr>
               <th scope="col" class="col-1">#</th>
-              <th scope="col" class="col-4">Nama</th>
-              <th scope="col" class="col-4">Username</th>
-              <th scope="col" class="col-3 text-center">Aksi</th>
+              <th scope="col" class="col-3">Username</th>
+              <th scope="col" class="col-8">Aksi</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td class="text-center">
-                <a href="<?php echo base_url('admin/edit_admin/1255') ?>" class="btn bg-info">Edit</a>
-                <a href="" class="btn bg-danger">Hapus</a>
-              </td>
+              <?php foreach($admin as $i): ?>
+                <th scope="row">1</th>
+                  <td><?php echo $i->username ?></td>
+                  <td>
+                    <a href="<?php echo base_url('admin/edit_admin/').$i->id ?>" class="btn bg-info">Edit</a>
+                    <a href="" class="btn bg-danger">Hapus</a>
+                </td>
+              <?php endforeach ?>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <nav aria-label="Page navigation example">
-      <ul class="pagination round-pagination  d-flex justify-content-center">
-        <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="javascript:;">2</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-        </li>
-      </ul>
-		</nav>
+    <?php echo $pagination ?>
 
   </div>
 </div>
+
+<!-- TODO: Delete Function AJAX -->

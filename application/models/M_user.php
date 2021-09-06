@@ -18,4 +18,21 @@ class M_user extends CI_Model{
       return FALSE;
     }
   }
+
+  // Pagination by role
+  public function user_by_role($limit, $start, $role){
+    $this->db->limit($limit, $start);
+    $q = $this->db->where('role', $role)->order_by('id', 'DESC')->get('user');
+
+    if($q->num_rows() > 0){
+      return $q->result();
+    } else {
+      return FALSE;
+    }
+  }
+
+  public function num_rows_by_role($role){
+    $q = $this->db->where('role', $role)->get('user');
+    return $q->num_rows();
+  }
 }
