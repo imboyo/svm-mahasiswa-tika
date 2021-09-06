@@ -22,17 +22,17 @@
             <h5 class="mb-0 text-danger">Tambah Admin</h5>
           </div>
           <hr>
-          <form class="row g-3">
+          <form class="row g-3" id="tbh-admin-form">
             <div class="col-12">
-              <label for="inputLastName1" class="form-label">Username</label>
+              <label for="tbh-admin-username" class="form-label">Username</label>
               <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-                <input type="text" class="form-control border-start-0" id="inputLastName1" placeholder="First Name">
+                <input type="text" class="form-control border-start-0" id="tbh-admin-username" placeholder="Username" name="username">
               </div>
             </div>
             <div class="col-12">
-              <label for="inputConfirmPassword" class="form-label">Password</label>
+              <label for="tbh-admin-password" class="form-label">Password</label>
               <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-lock"></i></span>
-                <input type="text" class="form-control border-start-0" id="inputConfirmPassword" placeholder="Confirm Password">
+                <input type="text" class="form-control border-start-0" id="tbh-admin-password" placeholder="Password" name="password">
               </div>
             </div>
             <div class="col-12">
@@ -43,9 +43,82 @@
       </div>
     </div>
 
-
-
-
-
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event){
+    const TAG_HTML = {
+      'form' : $('#tbh-admin-form'),
+      'input_username' : $('#tbh-admin-username'),
+      'input_password': $('#tbh-admin-password')
+    }
+
+    TAG_HTML.form.submit(function(e){
+      e.preventDefault();
+    })
+
+    TAG_HTML.form.validate({
+      errorClass: 'text-danger ms-2',
+
+      rules: {
+        username : {
+          required: true,
+          minlength: 6,
+        },
+        password: {
+          required: true,
+          minlength: 6,
+        }
+      },
+
+      submitHandler: function(){
+        let username = TAG_HTML.input_username.val()
+        let password = TAG_HTML.input_password.val()
+
+        $.ajax({
+          url: `<?php echo base_url() ?>API_User/tambah_admin`,
+          type: "post", 
+          datatype: 'json',
+          data:  {
+            "username" : username,
+            "password": password,
+          },
+          beforeSend: function(){
+            SlickLoader.enable();
+          },
+          complete: function(){
+            SlickLoader.disable();
+          },
+          success: function (response) {
+            let response_parsed = JSON.parse(response);
+
+            if (response_parsed.username == 'already exists'){
+              Swal.fire({
+                icon: 'error',
+                title: 'Gagal Menambahkan',
+                text: 'Username Telah digunakan - Silahkan gunakan gunakan username lainnya',
+              })
+            } else if (response == 201) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Good',
+                text: 'Akun berhasil dibuat',
+                showConfirmButton: false,
+                timer: 2000
+              }).then(function(){
+                window.location.href = `<?php echo base_url('admin') ?>`
+              })
+            } else {
+                Swal.fire({
+                icon: 'error',
+                title: 'Terdapat Kesalahan Request',
+                text: 'Silahkan Coba Lagi',
+              })
+            }
+          }
+        })
+      }
+    })
+  })
+</script>

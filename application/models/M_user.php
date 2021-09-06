@@ -19,6 +19,21 @@ class M_user extends CI_Model{
     }
   }
 
+  public function get_by_id($id){
+    $q = $this->db->where('id', $id)->get('user');
+    $user = $q->row();
+    if(!empty($user)){
+      return $user;
+    } else {
+      return FALSE;
+    }
+  }
+
+  public function delete_user($id){
+    $this->db->where('id', $id);
+    $this->db->delete('user');
+  }
+
   // Pagination by role
   public function user_by_role($limit, $start, $role){
     $this->db->limit($limit, $start);

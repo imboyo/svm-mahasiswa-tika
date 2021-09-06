@@ -20,16 +20,16 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach($admin as $i): ?>
             <tr>
-              <?php foreach($admin as $i): ?>
-                <th scope="row">1</th>
+                <th scope="row"><?php echo $table_num ?></th>
                   <td><?php echo $i->username ?></td>
                   <td>
                     <a href="<?php echo base_url('admin/edit_admin/').$i->id ?>" class="btn bg-info">Edit</a>
                     <a href="" class="btn bg-danger">Hapus</a>
                 </td>
-              <?php endforeach ?>
-            </tr>
+              </tr>
+              <?php $table_num++;endforeach ?>
           </tbody>
         </table>
       </div>
@@ -39,5 +39,3 @@
 
   </div>
 </div>
-
-<!-- TODO: Delete Function AJAX -->

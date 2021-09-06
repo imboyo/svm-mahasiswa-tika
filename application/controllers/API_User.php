@@ -10,8 +10,7 @@ class API_User extends CI_Controller{
   }
 
   public function tambah_admin(){
-    // TODO
-    // redirect_to_login_if_not_admin();
+    redirect_to_login_if_not_admin();
 
     $this->load->library('form_validation');
 
@@ -23,7 +22,7 @@ class API_User extends CI_Controller{
       'username', 
       'username', 
       'required|is_unique[user.username]',
-      ['is_unique' => 'already exist']
+      ['is_unique' => 'already exists']
     );
     $this->form_validation->set_rules('password','password', 'required');
 
@@ -47,5 +46,21 @@ class API_User extends CI_Controller{
       echo 201;
     }
 
+  }
+
+  public function delete_admin(){
+    // TODO - aktifkan validasi admin
+    // redirect_to_login_if_not_admin();
+    $uri = ($this->uri->segment(4) ? $this->uri->segment(4) : 0);
+
+    $user = $this->M_user->get_by_id($uri);
+
+    if (empty($user)){
+      echo 400;
+    } else {
+      $this->M_user->delete_user($uri);
+      
+      echo 202;
+    }
   }
 }

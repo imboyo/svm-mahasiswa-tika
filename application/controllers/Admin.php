@@ -23,6 +23,7 @@ class Admin extends CI_Controller {
     $data['admin'] = $this->M_user->user_by_role($config['per_page'], $page, $role);
     
     $data['pagination'] = $this->pagination->create_links();
+    $data['table_num'] = table_num($page, $config['per_page']);
 
     $this->load->view('templates/header', $data);
     $this->load->view('admin/index', $data);
