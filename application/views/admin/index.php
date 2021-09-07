@@ -64,7 +64,13 @@
             }).then(function(){
               window.location.href = `<?php echo base_url('admin/list') ?>`
           })
-        } else {
+        } else if (response == 'cant delete your own account'){
+          Swal.fire({
+              icon: 'warning',
+              title: 'Gagal',
+              text: 'Tidak dapat menghapus akun anda sendiri',
+          })
+        }else {
             Swal.fire({
             icon: 'error',
             title: 'Gagal',

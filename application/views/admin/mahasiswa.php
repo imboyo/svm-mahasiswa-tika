@@ -27,40 +27,29 @@
             </tr>
           </thead>
           <tbody>
+            <?php $table_num ;foreach($mahasiswa as $i): ?>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>Laki-laki</td>
-              <td>3,78</td>
-              <td>120</td>
-              <td>Tidak</td>
-              <td>3,5 Tahun</td>
-              <td>Tidak Tepat Waktu</td>
+              <th scope="row"><?php echo $table_num ?></th>
+              <td><?php echo $i->nama ?></td>
+              <td><?php echo $i->username ?></td>
+              <td><?php echo $i->jenis_kelamin ?></td>
+              <td><?php echo $i->ipk ?></td>
+              <td><?php echo $i->sks_keseluruhan ?></td>
+              <td><?php echo $i->organisasi ?></td>
+              <td><?php echo $i->lama_studi ?></td>
+              <td><?php echo $i->prediksi ?></td>
               <td>
                 <a href="<?php echo base_url('admin/edit_mahasiswa/123') ?>" class="btn bg-warning">Edit</a>
                 <a href="" class="btn bg-danger">Hapus</a>
               </td>
             </tr>
+            <?php $table_num++; endforeach; ?>
           </tbody>
         </table>
       </div>
     </div>
-
-    <nav aria-label="Page navigation example">
-      <ul class="pagination round-pagination  d-flex justify-content-center">
-        <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="javascript:;">2</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-        </li>
-      </ul>
-		</nav>
+    
+    <?php echo $pagination ?>
 
   </div>
 </div>

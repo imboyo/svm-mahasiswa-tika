@@ -91,6 +91,7 @@ class Admin extends CI_Controller {
     // Data
     $data['mahasiswa'] = $mahasiswa;
     $data['table_num'] = table_num($page, $config['per_page']);
+    $data['pagination'] = $this->pagination->create_links();
 
     // Views
     $this->load->view('templates/header', $data);

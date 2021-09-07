@@ -72,6 +72,8 @@ class API_User extends CI_Controller{
 
     if (empty($user)){
       echo 400;
+    } else if ( $_SESSION['username'] == $user->username ){
+      echo "cant delete your own account";
     } else {
       $this->M_user->delete_user($uri);
 

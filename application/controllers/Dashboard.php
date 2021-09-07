@@ -20,6 +20,7 @@ class Dashboard extends CI_Controller {
   }
 
   public function kriteria(){
+    redirect_to_login_if_not_logged_in();
     $this->load->model('M_kriteria');
     $data['title'] = 'Daftar Kriteria';
 
