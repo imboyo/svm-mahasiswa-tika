@@ -6,7 +6,7 @@
       <div class="ps-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0 p-0">
-            <li class="breadcrumb-item active" aria-current="page">Edit Mahasiswa</li>
+            <li class="breadcrumb-item active" aria-current="page">Tambah Mahasiswa</li>
           </ol>
         </nav>
       </div>
@@ -19,56 +19,58 @@
         <div class="card-title d-flex align-items-center">
           <div><i class="bx bxs-user me-1 font-22 text-danger"></i>
           </div>
-          <h5 class="mb-0 text-danger">Edit Mahasiswa</h5>
+          <h5 class="mb-0 text-danger">Tambah Mahasiswa</h5>
         </div>
         <hr>
-        <form class="row g-3">
-          <div class="col-md-6">
-            <label for="inputLastName1" class="form-label">Username</label>
+        <form class="row g-3" id="tbh-mahasiswa">
+          <div class="col-12">
+            <label for="mhs-username" class="form-label">Username</label>
             <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-              <input type="text" class="form-control border-start-0" id="inputLastName1" placeholder="First Name">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label for="inputLastName2" class="form-label">Nama</label>
-            <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-              <input type="text" class="form-control border-start-0" id="inputLastName2" placeholder="Last Name">
+              <input type="text" class="form-control border-start-0" id="mhs-username" placeholder="Username" name="username">
             </div>
           </div>
           <div class="col-12">
-            <label for="inputPhoneNo" class="form-label">Jenis Kelamin</label>
-            <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-category-alt' ></i></span>
-              <input type="text" class="form-control border-start-0" id="inputPhoneNo" placeholder="Phone No">
+            <label for="mhs-nama" class="form-label">Nama</label>
+            <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
+              <input type="text" class="form-control border-start-0" id="mhs-nama" placeholder="Nama" name="nama">
             </div>
           </div>
           <div class="col-12">
-            <label for="inputEmailAddress" class="form-label">IPK</label>
+            <label class="form-label">Jenis Kelamin</label>
+            <select class="form-select mb-3" aria-label="Default select example" id="mhs-jenis-kelamin">
+              <option value="1" selected>Laki-laki</option>
+              <option value="2">Perempuan</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="mhs-ipk" class="form-label">IPK</label>
             <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-bar-chart-alt-2' ></i></span>
-              <input type="text" class="form-control border-start-0" id="inputEmailAddress" placeholder="Email Address">
+              <input type="text" class="form-control border-start-0" id="mhs-ipk" placeholder="IPK">
             </div>
           </div>
           <div class="col-12">
-            <label for="inputChoosePassword" class="form-label">SKS Keseluruhan</label>
+            <label for="mhs-sks-keseluruhan" class="form-label">SKS Keseluruhan</label>
             <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-book-content'></i></span>
-              <input type="text" class="form-control border-start-0" id="inputChoosePassword" placeholder="Choose Password">
+              <input type="text" class="form-control border-start-0" id="mhs-sks-keseluruhan" placeholder="SKS Keseluruhan" name="sks-keseluruhan">
             </div>
           </div>
           <div class="col-12">
-            <label for="inputConfirmPassword" class="form-label">Organisasi</label>
-            <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-group' ></i></span>
-              <input type="text" class="form-control border-start-0" id="inputConfirmPassword" placeholder="Confirm Password">
-            </div>
+            <label class="form-label">Organisasi</label>
+            <select class="form-select mb-3" aria-label="Default select example" id="mhs-organisasi">
+              <option value="1">Ya</option>
+              <option value="0" selected>Tidak</option>
+            </select>
           </div>
           <div class="col-12">
-            <label for="inputConfirmPassword" class="form-label">Lama Studi</label>
+            <label for="mhs-lama-studi" class="form-label">Lama Studi</label>
             <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-time' ></i></span>
-              <input type="text" class="form-control border-start-0" id="inputConfirmPassword" placeholder="Confirm Password">
+              <input type="text" class="form-control border-start-0" id="mhs-lama-studi" placeholder="Lama Studi" name="lama-studi">
             </div>
           </div>
           <div class="col-12">
-            <label for="inputConfirmPassword" class="form-label">Password</label>
+            <label for="mhs-password" class="form-label">Password</label>
             <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-lock"></i></span>
-              <input type="text" class="form-control border-start-0" id="inputConfirmPassword" placeholder="Confirm Password">
+              <input type="text" class="form-control border-start-0" id="mhs-password" placeholder="Password" name="password">
             </div>
           </div>
           <div class="col-12">
