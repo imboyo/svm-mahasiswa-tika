@@ -107,7 +107,7 @@
                 showConfirmButton: false,
                 timer: 2000
               }).then(function(){
-                window.location.href = `<?php echo base_url('admin') ?>`
+                window.location.href = `<?php echo base_url('admin/list') ?>`
               })
             } else {
                 Swal.fire({

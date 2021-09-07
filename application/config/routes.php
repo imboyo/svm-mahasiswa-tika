@@ -5,6 +5,8 @@ $route['default_controller'] = 'Dashboard/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['admin/list/(:any)'] = 'Admin/list';
+
 $route['kriteria'] = 'Dashboard/kriteria';
 
 $route['admin/edit_mahasiswa/(:any)'] = 'Admin/edit_mahasiswa';

@@ -10,16 +10,16 @@ class Admin extends CI_Controller {
     $this->load->library('pagination');
   }
 
-  public function index(){
+  public function list(){
     redirect_to_login_if_not_admin();
     $data['title'] = 'Admin';
 
     // Pagination
     $role = 'admin';
     $num_rows = $this->M_user->num_rows_by_role($role);
-    $config = my_pagination(base_url($role), $num_rows, 20, 1);
+    $config = my_pagination(base_url('admin/list'), $num_rows, 20, 3);
     $this->pagination->initialize($config);
-    $page = ($this->uri->segment(1) ? $this->uri->segment(1) : 0);
+    $page = ($this->uri->segment(3) ? $this->uri->segment(3) : 0);
     $data['admin'] = $this->M_user->user_by_role($config['per_page'], $page, $role);
     
     $data['pagination'] = $this->pagination->create_links();
@@ -80,6 +80,13 @@ class Admin extends CI_Controller {
     redirect_to_login_if_not_admin();
     $data['title'] = 'Mahasiswa';
     
+    // Pagination
+    $role = 'normal';
+    $num_rows = $this->M_user->num_rows_by_role($role);
+    $config = my_pagination(base_url('admin/mahasiswa'), $num_rows, 20, 3);
+    $this->pagination->initialize($config);
+    $page = ($this->uri->segment(3) ? $this->uri->segment(3) : 0);
+
     $this->load->view('templates/header', $data);
     $this->load->view('admin/mahasiswa', $data);
     $this->load->view('templates/footer');
