@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
   public function __construct() {
     parent::__construct();
 
-    $this->load->model('M_user');
+    $this->load->model(['M_user', 'M_mahasiswa']);
     $this->load->library('pagination');
   }
 
@@ -83,12 +83,23 @@ class Admin extends CI_Controller {
     // Pagination
     $role = 'normal';
     $num_rows = $this->M_user->num_rows_by_role($role);
-    $config = my_pagination(base_url('admin/mahasiswa'), $num_rows, 20, 3);
+    $config = my_pagination(base_url('admin/mahasiswa'), $num_rows, 20, 4);
     $this->pagination->initialize($config);
-    $page = ($this->uri->segment(3) ? $this->uri->segment(3) : 0);
+    $page = ($this->uri->segment(4) ? $this->uri->segment(4) : 0);
+    $mahasiswa = $this->M_mahasiswa->get_mahasiswa($config['per_page'], $page);
 
+    // Data
+    $data['mahasiswa'] = $mahasiswa;
+    $data['table_num'] = table_num($page, $config['per_page']);
+
+    // Views
     $this->load->view('templates/header', $data);
-    $this->load->view('admin/mahasiswa', $data);
+    if(!empty($mahasiswa)){
+      $this->load->view('admin/mahasiswa', $data);
+    } else {
+      $this->load->view('templates/no_content');
+    }
     $this->load->view('templates/footer');
+
   }
 }
