@@ -17,11 +17,13 @@
             </tr>
           </thead>
           <tbody>
+            <?php $num = 1 ;foreach($kriteria as $i): ?>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
+              <th scope="row"><?php echo $num ?></th>
+              <td><?php echo $i->nama ?></td>
+              <td><?php echo $i->attribute ?></td>
             </tr>
+            <?php $num++ ;endforeach; ?>
           </tbody>
         </table>
       </div>

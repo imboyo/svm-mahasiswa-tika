@@ -6,7 +6,7 @@ class Dashboard extends CI_Controller {
   public function __construct() {
     parent::__construct();
 
-    redirect_to_login_if_not_logged_in();
+    // redirect_to_login_if_not_logged_in();
   }
 
   // Home Page
@@ -20,10 +20,19 @@ class Dashboard extends CI_Controller {
   }
 
   public function kriteria(){
+    $this->load->model('M_kriteria');
     $data['title'] = 'Daftar Kriteria';
 
-    $this->load->view('templates/header', $data);
-    $this->load->view('kriteria');
-    $this->load->view('templates/footer');
+    $kriteria = $this->M_kriteria->get_kriteria();
+
+    if (empty($kriteria)){
+      redirect(base_url()); die();
+    } else {
+      $data['kriteria'] = $kriteria;
+  
+      $this->load->view('templates/header', $data);
+      $this->load->view('kriteria');
+      $this->load->view('templates/footer');
+    }
   }
 }
