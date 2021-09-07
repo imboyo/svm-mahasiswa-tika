@@ -10,7 +10,7 @@ class API_Mahasiswa extends CI_Controller{
   }
 
   public function tambah_mahasiswa(){
-    // TODO: Only admin can access
+    redirect_to_login_if_not_admin();
 
     header('Content-Type: application/json; charset=utf-8');
     $this->load->library('form_validation');
@@ -90,5 +90,19 @@ class API_Mahasiswa extends CI_Controller{
       }
     }
 
+  }
+
+  public function delete_mahasiswa(){
+    // TODO: Only for admin
+    $uri = ($this->uri->segment(4) ? $this->uri->segment(4) : 0);
+
+    $mahasiswa = $this->M_user->get_by_id($uri);
+
+    if (empty($mahasiswa)){
+      echo 400;
+    } else {
+      $this->M_user->delete_user($uri);
+      echo 200;
+    }
   }
 }

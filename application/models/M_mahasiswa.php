@@ -38,4 +38,5 @@ class M_mahasiswa extends CI_Model {
 
     $this->db->trans_complete();
   }
+
 }

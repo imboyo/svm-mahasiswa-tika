@@ -40,7 +40,7 @@
               <td><?php echo $i->prediksi ?></td>
               <td>
                 <a href="<?php echo base_url('admin/edit_mahasiswa/123') ?>" class="btn bg-warning">Edit</a>
-                <a href="" class="btn bg-danger">Hapus</a>
+                <a class="btn bg-danger" onclick="delete_mahasiswa(<?php echo $i->user_id ?>)">Hapus</a>
               </td>
             </tr>
             <?php $table_num++; endforeach; ?>
@@ -53,3 +53,40 @@
 
   </div>
 </div>
+
+<script>
+  function delete_mahasiswa(id){
+    $.ajax({
+      url: `<?php echo base_url() ?>API/admin/delete_mahasiswa/${id}`,
+      type: "get", 
+      datatype: 'json',
+
+      beforeSend: function(){
+        SlickLoader.enable();
+      },
+      complete: function(){
+        SlickLoader.disable();
+      },
+      success: function(response){
+        if(response == 200){
+            Swal.fire({
+              icon: 'success',
+              title: 'Good',
+              text: 'Berhasil Dihapus',
+              showConfirmButton: false,
+              timer: 1500
+            }).then(function(){
+              window.location.href = `<?php echo base_url('admin/mahasiswa') ?>`
+          })
+        } else {
+            Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: 'Kesalahan Server',
+          })
+        }
+      }
+    })
+  }
+
+</script>
