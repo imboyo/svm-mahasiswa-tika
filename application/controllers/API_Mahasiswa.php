@@ -58,8 +58,6 @@ class API_Mahasiswa extends CI_Controller{
         $error[$i] = strip_tags(form_error($i));
       }
       echo json_encode($error);
-
-      http_response(400);
     } else {
       $user_data = 
         [
@@ -83,12 +81,12 @@ class API_Mahasiswa extends CI_Controller{
       if(!$edit){
         $this->M_mahasiswa->tambah_mahasiswa($user_data, $mahasiswa_data);
         
-        http_response(201);
+        echo 201;
       } else {
         $id = $this->input->get('id');
 
         $this->M_mahasiswa->edit_mahasiswa($id ,$user_data, $mahasiswa_data);
-        http_response(200);
+        echo 200;
       }
     }
 

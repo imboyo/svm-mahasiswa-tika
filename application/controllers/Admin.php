@@ -83,7 +83,7 @@ class Admin extends CI_Controller {
     // Pagination
     $role = 'normal';
     $num_rows = $this->M_user->num_rows_by_role($role);
-    $config = my_pagination(base_url('admin/mahasiswa'), $num_rows, 20, 4);
+    $config = my_pagination(base_url('admin/mahasiswa/list'), $num_rows, 2, 4);
     $this->pagination->initialize($config);
     $page = ($this->uri->segment(4) ? $this->uri->segment(4) : 0);
     $mahasiswa = $this->M_mahasiswa->get_mahasiswa($config['per_page'], $page);

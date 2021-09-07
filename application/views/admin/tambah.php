@@ -58,6 +58,11 @@
       e.preventDefault();
     })
 
+    
+    jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value.indexOf(" ") < 0 && value != ""; 
+    }, "No space please and don't leave it empty");
+
     TAG_HTML.form.validate({
       errorClass: 'text-danger ms-2',
 
@@ -65,6 +70,7 @@
         username : {
           required: true,
           minlength: 6,
+          noSpace: true,
         },
         password: {
           required: true,
