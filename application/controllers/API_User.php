@@ -10,7 +10,7 @@ class API_User extends CI_Controller{
   }
 
   public function tambah_admin(){
-    // redirect_to_login_if_not_admin();
+    redirect_to_login_if_not_admin();
 
     $this->load->library('form_validation');
 

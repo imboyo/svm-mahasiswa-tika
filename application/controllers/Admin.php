@@ -95,11 +95,7 @@ class Admin extends CI_Controller {
 
     // Views
     $this->load->view('templates/header', $data);
-    if(!empty($mahasiswa)){
-      $this->load->view('admin/mahasiswa', $data);
-    } else {
-      $this->load->view('templates/no_content');
-    }
+    $this->load->view('admin/mahasiswa', $data);
     $this->load->view('templates/footer');
 
   }

@@ -17,4 +17,13 @@ class M_mahasiswa extends CI_Model {
       return FALSE;
     }
   }
+
+  public function tambah_mahasiswa($user_data, $mahasiswa_data){
+    $this->db->trans_start();
+    $this->db->insert('user', $user_data);
+    $mahasiswa_data['user_id'] = $this->db->insert_id();
+    
+    $this->db->insert('mahasiswa', $mahasiswa_data);
+    $this->db->trans_complete();
+  }
 }
