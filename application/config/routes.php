@@ -15,4 +15,5 @@ $route['kriteria'] = 'Dashboard/kriteria';
 
 $route['admin/mahasiswa/list/(:any)'] = 'Admin/mahasiswa';
 $route['API/admin/delete_mahasiswa/(:any)'] = 'API_Mahasiswa/delete_mahasiswa';
+$route['admin/edit_mahasiswa/(:any)'] = 'Admin/edit_mahasiswa';
 

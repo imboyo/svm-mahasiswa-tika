@@ -39,7 +39,7 @@
               <td><?php echo $i->lama_studi ?></td>
               <td><?php echo $i->prediksi ?></td>
               <td>
-                <a href="<?php echo base_url('admin/edit_mahasiswa/123') ?>" class="btn bg-warning">Edit</a>
+                <a href="<?php echo base_url("admin/edit_mahasiswa/{$i->user_id}") ?>" class="btn bg-warning">Edit</a>
                 <a class="btn bg-danger" onclick="delete_mahasiswa(<?php echo $i->user_id ?>)">Hapus</a>
               </td>
             </tr>

@@ -18,6 +18,21 @@ class M_mahasiswa extends CI_Model {
     }
   }
 
+  public function get_mahasiswa_detail($id){ 
+    $q = $this->db->query("SELECT user.id, user.username, mahasiswa.*
+      FROM user
+      INNER JOIN mahasiswa
+      ON user.id = mahasiswa.user_id
+      WHERE user.role = 'normal' AND user.id = $id
+    ");
+
+    if(!empty($q) ){
+      return $q->row();
+    } else {
+      return FALSE;
+    }
+  }
+
   public function tambah_mahasiswa($user_data, $mahasiswa_data){
     $this->db->trans_start();
 

@@ -71,8 +71,17 @@ class Admin extends CI_Controller {
     redirect_to_login_if_not_admin();
     $data['title'] = 'Edit Mahasiswa';
 
+    $uri = ($this->uri->segment(3) ? $this->uri->segment(3) : 0);
+    $mahasiswa = $this->M_user->get_by_id($uri);
+
+    if(empty($mahasiswa)){
+      redirect(base_url('admin/mahasiswa')); die();
+    }
+
+    $data['mahasiswa'] = $this->M_mahasiswa->get_mahasiswa_detail($uri);
+
     $this->load->view('templates/header', $data);
-    $this->load->view('admin/edit_mahasiswa');
+    $this->load->view('admin/edit_mahasiswa', $data);
     $this->load->view('templates/footer');
   }
 
