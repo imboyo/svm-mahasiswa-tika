@@ -20,10 +20,22 @@ class M_mahasiswa extends CI_Model {
 
   public function tambah_mahasiswa($user_data, $mahasiswa_data){
     $this->db->trans_start();
+
     $this->db->insert('user', $user_data);
-    $mahasiswa_data['user_id'] = $this->db->insert_id();
-    
+    $mahasiswa_data['user_id'] = $this->db->insert_id();  
     $this->db->insert('mahasiswa', $mahasiswa_data);
+
+    $this->db->trans_complete();
+  }
+
+  public function edit_mahasiswa($id, $user_data, $mahasiswa_data){
+    // $this->db->trans_start();
+
+    $this->db->where('id', $id);
+    $this->db->update('user',$user_data);
+    $this->db->where('user_id', $id);
+    $this->db->update('mahasiswa', $mahasiswa_data);
+
     $this->db->trans_complete();
   }
 }

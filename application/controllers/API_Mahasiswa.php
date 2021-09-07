@@ -15,6 +15,8 @@ class API_Mahasiswa extends CI_Controller{
     header('Content-Type: application/json; charset=utf-8');
     $this->load->library('form_validation');
 
+    $edit = $this->input->get('edit');
+
     $username = $this->input->post('username');
     $nama = $this->input->post('nama');
     $jenis_kelamin = $this->input->post('jenis_kelamin');
@@ -28,7 +30,7 @@ class API_Mahasiswa extends CI_Controller{
       [
         'field' => 'username', 
         'label' => 'username',
-        'rules' => 'required|is_unique[user.username]'
+        'rules' => 'trim|required|is_unique[user.username]'
       ]
     ];
 
@@ -63,7 +65,7 @@ class API_Mahasiswa extends CI_Controller{
         [
           'username' => $username,
           'password' => password_hash($password, PASSWORD_DEFAULT),
-          'role' => 'mahasiswa'
+          'role' => 'normal'
         ];
       $mahasiswa_data = 
         [
@@ -77,10 +79,17 @@ class API_Mahasiswa extends CI_Controller{
           // TODO: Hasil Dari Machine Learning - Prediksi
           'prediksi' => 'Tepat Waktu',
         ];
+      
+      if(!$edit){
+        $this->M_mahasiswa->tambah_mahasiswa($user_data, $mahasiswa_data);
+        
+        http_response(201);
+      } else {
+        $id = $this->input->get('id');
 
-      $this->M_mahasiswa->tambah_mahasiswa($user_data, $mahasiswa_data);
-
-      http_response(201);
+        $this->M_mahasiswa->edit_mahasiswa($id ,$user_data, $mahasiswa_data);
+        http_response(200);
+      }
     }
 
   }
