@@ -30,7 +30,7 @@ function redirect_to_login_if_not_admin(){
   }
 }
 
-function get_account_by_session($role){
+function redirect_to_login_if_not_role($role){
   if(get_account_by_session()->role != $role){
     redirect(base_url('auth/login'));die();
   }
