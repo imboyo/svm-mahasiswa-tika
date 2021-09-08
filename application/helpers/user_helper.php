@@ -29,3 +29,9 @@ function redirect_to_login_if_not_admin(){
     redirect(base_url('auth/login'));die();
   }
 }
+
+function get_account_by_session($role){
+  if(get_account_by_session()->role != $role){
+    redirect(base_url('auth/login'));die();
+  }
+}

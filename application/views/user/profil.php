@@ -7,7 +7,7 @@
             <h6 class="mb-0">Username</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <input type="text" class="form-control" value="John Doe">
+            <input type="text" class="form-control" value="<?php echo $detail->username ?>" disabled>
           </div>
         </div>
         <div class="row mb-3">
@@ -15,7 +15,7 @@
             <h6 class="mb-0">Nama Lengkap</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <input type="text" class="form-control" value="john@example.com">
+            <input type="text" class="form-control" value="<?php echo $detail->nama ?>" disabled>
           </div>
         </div>
         <div class="row mb-3">
@@ -23,7 +23,7 @@
             <h6 class="mb-0">Jenis Kelamin</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <input type="text" class="form-control" value="(239) 816-9029">
+            <input type="text" class="form-control" value="pphp">
           </div>
         </div>
         <div class="row mb-3">
