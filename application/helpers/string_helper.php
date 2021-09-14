@@ -10,3 +10,13 @@ if(!function_exists('conditional_bool_rendering')){
     }
   }
 }
+
+if(!function_exists('conditional_rendering')){
+	function conditional_rendering($value, $true_value, $true_return, $false_return){
+		if ($value == $true_value){
+			return $true_return;
+		} else {
+			return $false_return;
+		}
+	}
+}
