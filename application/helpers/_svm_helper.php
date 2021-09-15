@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 if(!function_exists('data_svm')){
-	function data_svm(){
+	function data_svm(): array
+	{
 		return array(
 			array(1,1 =>3.93,2 =>146,3 =>1,4 =>4),
 			array(1,1 =>3.56,2 =>146,3 =>1,4 =>4),
@@ -100,7 +101,8 @@ if(!function_exists('analyze_prediction')){
 		// $result == 1 = tepat waktu
 		// $result == -1 = tidak tepat waktu
 
-		/* Instalation SVM
+		/*
+			Instalation SVM
        		Download SVM Ekstension for php in https://pecl.php.net/package/svm
 			put in "C:\xampp\php\ext"
 			add variable php.ini to

@@ -78,7 +78,7 @@ class API_Mahasiswa extends CI_Controller
 					'organisasi' => $organisasi,
 					'lama_studi' => $lama_studi,
 
-					// TODO: Hasil Dari Machine Learning - Prediksi
+					// Hasil Dari Machine Learning - Prediksi
 					'prediksi' => analyze_prediction($ipk,$sks_keseluruhan,$organisasi,$lama_studi),
 				];
 
